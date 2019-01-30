@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:${ELASTIC_VERSION:-6.5.0}
+    hostname: '{{.Node.Hostname}}-filebeat'
+    user: root
+    networks:
+      - default
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/containers/:/var/lib/docker/containers/:ro
+      - ./log/application:/var/log/application
+      - ./filebeat.yml:/
+
+    command: ['--strict.perms=false']
+    deploy:
+      mode: global
+
+  server:
+    image: 'example-server'
+    build: './example-server'
+    volumes:
+      - ./log:/app/log
+    networks:
+      - default
+    ports:
+      - '3001:3001'
+
+networks:
+  default:
+    driver: bridge

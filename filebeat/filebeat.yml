@@ -1,0 +1,12 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/*.log
+      - /var/log/**/*.log
+
+output.elasticsearch:
+  hosts: ['http://ec2-13-209-87-16.ap-northeast-2.compute.amazonaws.com:9200']
+
+setup.kibana:
+  host: 'http://ec2-13-209-87-16.ap-northeast-2.compute.amazonaws.com:5601'
