@@ -1,0 +1,5 @@
+pipeline.id: webinar
+path.config: ./webinar.conf
+
+config.reload.automatic: true
+config.reload.interval: 3s
