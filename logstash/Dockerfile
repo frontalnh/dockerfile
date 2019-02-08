@@ -4,7 +4,11 @@ FROM docker.elastic.co/logstash/logstash:6.6.0
 WORKDIR /usr/share/logstash
 
 # copy whole file to /app which is working directory
-COPY simple.config ./config/simple.config
 COPY logstash.yml ./config/logstash.yml
+COPY config/webinar.conf ./config/webinar.conf
+COPY config/tcp.conf ./config/tcp.conf
+COPY config/default.conf ./config/default.conf
 
-CMD [ "logstash","-f","./conf/simple.config" ]
+EXPOSE 5044
+
+CMD [ "logstash" ]

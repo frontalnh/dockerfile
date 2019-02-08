@@ -1,5 +1,5 @@
-pipeline.id: webinar
-path.config: ./webinar.conf
+pipeline.id: tcp
+path.config: /usr/share/logstash/config/default.conf
 
 config.reload.automatic: true
 config.reload.interval: 3s
