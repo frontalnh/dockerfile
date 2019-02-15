@@ -27,4 +27,5 @@ EXPOSE 3001
 EXPOSE 5672
 EXPOSE 15672
 
+
 CMD [ "rabbitmq-server","start" ]
