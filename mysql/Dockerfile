@@ -13,4 +13,4 @@ COPY ./my.cnf /etc/mysql/conf.d/my.cnf
 EXPOSE 3306
 
 # Option for set character set to utf8 and run mysql server with utf8
-CMD ['--character-set-server=utf8','--colation-server-utf8_unicode_ci']
+# CMD ["--character-set-server=utf8","--colation-server-utf8_unicode_ci"]
